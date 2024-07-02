@@ -2,7 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center d-flex flex-column align-items-center">
+    <h1 class="display-4">Bem vindo(a)</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <a asp-controller="SimpleCalculator" asp-action="Index">
+                <button type="button" class="btn btn-primary w-100 mt-2">Calculadora Aritmética</button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a asp-controller="" asp-action="">
+                <button type="button" class="btn btn-warning w-100 mt-2 text-white">Calculadora de Salário</button>
+            </a>
+        </div>
+        <div class="col-md-6 btn-container">
+            <a asp-controller="" asp-action="">
+                <button type="button" class="btn btn-success w-100 mt-2">Calculadora KM/L</button>
+            </a>
+        </div>
+        <div class="col-md-6 btn-container">
+            <a asp-controller="" asp-action="">
+                <button type="button" class="btn btn-danger w-100 mt-2">Calculadora de Autonomia</button>
+            </a>
+        </div>
+    </div>
+</div>
 </div>

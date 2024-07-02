@@ -1,7 +1,12 @@
+using calcmaster_webapp.Models.simple.context;
+using calcmaster_webapp.Models.simple.factories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<SimpleCalculatorFactory>();
+builder.Services.AddScoped<SimpleCalculatorContext>();
 
 var app = builder.Build();
 
