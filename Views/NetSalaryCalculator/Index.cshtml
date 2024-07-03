@@ -1,0 +1,59 @@
+@model NetSalaryCalculatorViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+<div class="row">
+    <div class="alert alert-primary d-flex align-items-center gap-3" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            <path
+                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+        </svg>
+        <div>
+            Esse cálculo leva em consideração, somente, as devidas alíquotas e deduções reais do <strong>INSS</strong> (Instituto
+            Nacional do Seguro Social) e <strong>IR</strong> (Imposto de Renda), em 2024.
+        </div>
+    </div>
+</div>
+
+<form asp-action="Calculate" method="post" class="form-horizontal" role="form">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="GrossSalary" class="control-label">Informe seu salário bruto:</label>
+            <div class="input-group">
+                <span class="input-group-text">R$</span>
+                <input asp-for="GrossSalary" class="form-control" required type="number" min="1">
+                <span class="input-group-text">.00</span>
+            </div>
+            <span asp-validation-for="GrossSalary" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3 mt-3">
+                <input class="btn btn-success" type="submit" value="Calcular" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="row mt-3">
+    <div>
+        <h6>Descontos</h6>
+        <ul class="list-group w-25 mb-3">
+            <li class="list-group-item list-group-item-warning">
+                <strong>IR: @Model.IrDiscountValue.ToString("c")</strong>
+            </li>
+            <li class="list-group-item list-group-item-warning">
+                <strong>INSS: @Model.InssDiscountValue.ToString("c") </strong>
+            </li>
+            <li class="list-group-item list-group-item-warning">
+                <strong>Total: @Model.TotalDiscountValue.ToString("c") </strong>
+            </li>
+        </ul>
+    </div>
+    <h5>Salário líquido: @Model.NetSalary.ToString("c") </h5>
+</div>
