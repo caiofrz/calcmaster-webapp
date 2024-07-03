@@ -1,7 +1,7 @@
 using calcmaster_webapp.Enums;
 using calcmaster_webapp.Models.simple.context;
 using calcmaster_webapp.Models.simple.factories;
-using calcmaster_webapp.ViewModels.Simple;
+using calcmaster_webapp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace calcmaster_webapp.Controllers
@@ -27,6 +27,11 @@ namespace calcmaster_webapp.Controllers
         [HttpPost]
         public IActionResult Calculate(SimpleCalculatorViewModel viewModel)
         {
+            if (viewModel is {Number2: 0, Operation: "DIVISION"})
+            {
+                ModelState.AddModelError("ErrorDividedByZero", "Divisão por zero não é permitida!");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View("Index", viewModel);

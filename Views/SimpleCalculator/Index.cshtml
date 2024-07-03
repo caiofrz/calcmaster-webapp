@@ -10,14 +10,14 @@
     <div class="row">
         <div class="form-group col-md-6">
             <label asp-for="Number1" class="control-label">Primeiro número</label>
-            <input asp-for="Number1" class="form-control" required type="number"/>
+            <input asp-for="Number1" class="form-control" required type="number" />
             <span asp-validation-for="Number1" class="text-danger"></span>
         </div>
         <div class="row">
             <div class="form-group col-md-6 w-25">
                 <label class="control-label" asp-for="Operation">Operação:</label>
                 <select class="form-select form-select-sm" id="Operation" name="Operation" required>
-                    <option selected>Escolha uma operação</option>
+                    <option selected disabled>Escolha uma operação</option>
                     <option value="SUM">+</option>
                     <option value="SUBTRACTION">-</option>
                     <option value="MULTIPLICATION">*</option>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group col-md-6">
             <label asp-for="Number2" class="control-label">Segundo número</label>
-            <input asp-for="Number2" class="form-control" required type="number"/>
+            <input asp-for="Number2" class="form-control" required type="number" />
             <span asp-validation-for="Number2" class="text-danger"></span>
         </div>
         <div class="row">
@@ -40,6 +40,11 @@
 
 <div class="row mt-3">
     <h5>Resultado:
+    @if (ViewData.ModelState.ContainsKey("ErrorDividedByZero"))
+    {
+        <span class="text-danger">@ViewData.ModelState["ErrorDividedByZero"].Errors[0].ErrorMessage</span>
+    } else{
         @Model.Result
-        </ h5>
+    }
+    </h5>
 </div>

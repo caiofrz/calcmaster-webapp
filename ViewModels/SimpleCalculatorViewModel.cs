@@ -1,4 +1,4 @@
-namespace calcmaster_webapp.ViewModels.Simple
+namespace calcmaster_webapp.ViewModels
 {
     public class SimpleCalculatorViewModel
     {
