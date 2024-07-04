@@ -1,4 +1,6 @@
+using calcmaster_webapp.Interfaces.AverageFuelConsumption;
 using calcmaster_webapp.Interfaces.Salary;
+using calcmaster_webapp.Models;
 using calcmaster_webapp.Models.Salary;
 using calcmaster_webapp.Models.simple.context;
 using calcmaster_webapp.Models.simple.factories;
@@ -15,6 +17,8 @@ builder.Services.AddScoped<TaxSetup>();
 builder.Services.AddTransient<IIrTaxCalculator, IrTaxCalculator>();
 builder.Services.AddTransient<IInssTaxCalculator, InssTaxCalculator>();
 builder.Services.AddTransient<INetSalaryCalculator, NetSalaryCalculator>();
+
+builder.Services.AddTransient<IAverageFuelConsumptionCalculator, AverageFuelConsumptionCalculator>();
 #endregion
 
 #region Configure App
