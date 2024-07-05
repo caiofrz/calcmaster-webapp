@@ -26,19 +26,19 @@
     <div class="row gap-3">
         <div class="form-group col-md-6">
             <label asp-for="Title" class="control-label">Especifique qual a viagem: </label>
-            <input asp-for="Title" class="form-control" required value="">
+            <input asp-for="Title" class="form-control" value="">
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         <div class="form-group col-md-6">
             <label asp-for="Kilometers" class="control-label">Informe a quantidade de KM (quilômetros percorridos):
             </label>
-            <input asp-for="Kilometers" class="form-control" required type="number" min="0" value="">
+            <input asp-for="Kilometers" class="form-control">
             <span asp-validation-for="Kilometers" class="text-danger"></span>
         </div>
         <div class="form-group col-md-6">
             <label asp-for="LitersFilled" class="control-label">Informe a quantidade de combustível abastecido em
                 L: </label>
-            <input asp-for="LitersFilled" class="form-control" required type="number" min="0" value="">
+            <input asp-for="LitersFilled" class="form-control">
             <span asp-validation-for="LitersFilled" class="text-danger"></span>
         </div>
         <div class="row">

@@ -45,7 +45,7 @@ namespace calcmaster_webapp.Controllers
             _calculator.Trips.Add(trip);
 
             _logger.LogInformation($"Trips added: {trip}");
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
