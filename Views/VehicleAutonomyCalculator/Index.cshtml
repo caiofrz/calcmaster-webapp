@@ -1,0 +1,54 @@
+@model calcmaster_webapp.Models.VehicleAutonomy.Vehicle
+
+@{
+    ViewData["Title"] = "Calculadora de Autonomia";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row ms-0">
+    <div class="alert alert-primary d-flex align-items-center gap-3" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            <path
+                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0
+1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+        </svg>
+        <div>
+            É possível realizar o cálculo de autonomia para mais de um veículo. Por isso, clique em <strong>"Salvar
+                veículo"</strong> e depois clique em "Calcular"
+        </div>
+    </div>
+</div>
+
+<form asp-action="AddVehicle" method="post" class="form-horizontal" role="form">
+    <div class="row gap-3">
+        <div class="form-group col-md-6">
+            <label asp-for="Name" class="control-label">Especifique qual o veículo: </label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="FuelTankSize" class="control-label">Informe o tamanho do tanque em L (litros):
+            </label>
+            <input asp-for="FuelTankSize" class="form-control">
+            <span asp-validation-for="FuelTankSize" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="AverageFuelConsumption" class="control-label">Informe o consumo médio do veículo em KM/L:
+            </label>
+            <input asp-for="AverageFuelConsumption" class="form-control">
+            <span asp-validation-for="AverageFuelConsumption" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3 mt-3">
+                <input class="btn btn-primary" type="submit" value="Salvar veículo" />
+            </div>
+            <div class="form-group col-md-3 mt-3">
+                <a class="btn btn-success" asp-controller="VehicleAutonomyCalculator"
+                    asp-action="Calculate">Calcular</a>
+            </div>
+        </div>
+    </div>
+</form>
