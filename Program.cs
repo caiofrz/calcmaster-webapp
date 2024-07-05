@@ -18,7 +18,7 @@ builder.Services.AddTransient<IIrTaxCalculator, IrTaxCalculator>();
 builder.Services.AddTransient<IInssTaxCalculator, InssTaxCalculator>();
 builder.Services.AddTransient<INetSalaryCalculator, NetSalaryCalculator>();
 
-builder.Services.AddTransient<IAverageFuelConsumptionCalculator, AverageFuelConsumptionCalculator>();
+builder.Services.AddSingleton<IAverageFuelConsumptionCalculator, AverageFuelConsumptionCalculator>();
 #endregion
 
 #region Configure App
